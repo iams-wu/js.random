@@ -52,11 +52,13 @@ let filter = function(rho){
     else return false;
 }
 
+let numcpu = 10;
+
 let rho = function () {
 
    [...document.getElementsByClassName("md")].map(lower).filter(filter).reverse()
        .reduce(function(tau, w, cue, a) {
-	   if(tau > 1) { a = []; return tau }
+	   if(vees.length > numcpu) { a = []; return tau }
 
 	   if(neej.includes(w[0])) return tau;
 
@@ -83,12 +85,6 @@ let rho = function () {
 	   vees.push([w, jae]);
 	   return ++tau;
        }, 0);
-
-   if(document.getElementsByClassName("vote-status")[0] && document.getElementsByClassName("vote-status")[0].getElementsByTagName("h1")[0].childNodes[1].data > 3){ 
-       document.getElementsByClassName("more")[1].childNodes[2].click();
-       vees.forEach(function(w){clearInterval(w[1]);});
-       vees = [];
-   }
 }
 
 setInterval(rho,2000);
